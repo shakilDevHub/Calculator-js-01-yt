@@ -15,6 +15,19 @@ resultBtn.addEventListener("click", (e)=>{
     result.value = (Number.isInteger(resultValue))?
     resultValue:
     resultValue.toPrecision(5);
+
+    if(Number.isInteger(resultValue)){
+        result.value = resultValue;
+    }else{
+        if((resultValue+"").length>14){
+            result.value = resultValue.toPrecision(14);
+        }else{
+            result.value = resultValue;
+        }
+    }
+})
+resultBtn.addEventListener("dblclick", ()=>{
+    result.value = "";
 })
 clearBtn.addEventListener("click", ()=>{
     result.value = "";
@@ -25,5 +38,5 @@ backSpace.addEventListener("click", ()=>{
     resultValue = resultValue.slice(0, resultValue.length-1);
     resultValue = resultValue.join("");
     result.value=resultValue;
-    console.log(resultValue)
+    console.log(resultValue);
 })
